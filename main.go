@@ -1,11 +1,12 @@
 package main
 
 import (
+	"cash/cache"
 	"fmt"
 )
 
 func main() {
-	cache := cash.New()
+	cache := cache.New()
 
 	cache.Set("userId", 42)
 	userId := cache.Get("userId")
@@ -13,7 +14,9 @@ func main() {
 	fmt.Println(userId)
 
 	cache.Delete("userId")
-	userId := cache.Get("userId")
+	userId = cache.Get("userId")
+	fastString := cache.Get("fastString")
 
 	fmt.Println(userId)
+	fmt.Println(fastString)
 }
